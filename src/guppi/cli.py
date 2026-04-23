@@ -19,12 +19,15 @@ Command-line flags:
 from __future__ import annotations
 
 import asyncio
+import os
+import platform
 import sys
 
 import typer
 
 from .agent import DEFAULT_SYSTEM_PROMPT, Agent
 from .config import Settings
+from .env import describe_environment
 from .renderer import Renderer
 from .skills.loader import build_system_prompt, load_skills, select_relevant_skills
 from .tools.registry import build_default_registry
@@ -60,12 +63,14 @@ def main(
 
     skills = [] if no_skills else load_skills(settings.skills_dir)
     selected = select_relevant_skills(skills)
-    system_prompt = build_system_prompt(DEFAULT_SYSTEM_PROMPT, selected)
+    base_prompt = DEFAULT_SYSTEM_PROMPT + "\n\n" + describe_environment()
+    system_prompt = build_system_prompt(base_prompt, selected)
 
     renderer.banner(model=settings.model, skills_count=len(selected))
     if settings.debug:
         renderer.info(f"skills dir: {settings.skills_dir}")
         renderer.info(f"loaded {len(skills)} skill(s), using {len(selected)}")
+        renderer.info(f"host: {platform.system()} ({sys.platform}), shell: {os.environ.get('COMSPEC') if platform.system() == 'Windows' else '/bin/sh'}")
 
     agent = Agent(
         settings=settings,
