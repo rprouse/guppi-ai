@@ -1,6 +1,14 @@
 # guppi
 
-A Python CLI agentic assistant built on the Anthropic API. Small, async,
+<img align="right" width="200" height="200" src="img/guppi.png">
+
+GUPPI (or General Unit Primary Peripheral Interface) Is a semi-sentient software
+being that helps Replicants interact with the many systems they have at their
+disposal. This is an early implementation of the interface and as this is not
+the year 2133 in the fictional [Bobverse](https://bobiverse.fandom.com/wiki/We_Are_Legion_(We_Are_Bob)_Wiki),
+This GUPPI is not actually semi-sentient or is it?
+
+Guppi is a Python CLI agentic assistant built on the Anthropic API. Small, async,
 streaming, with pluggable tools and (soon) MCP + Agent Skills support.
 
 This is a learning project built from first principles — the code is kept
