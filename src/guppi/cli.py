@@ -70,7 +70,9 @@ def main(
     if settings.debug:
         renderer.info(f"skills dir: {settings.skills_dir}")
         renderer.info(f"loaded {len(skills)} skill(s), using {len(selected)}")
-        renderer.info(f"host: {platform.system()} ({sys.platform}), shell: {os.environ.get('COMSPEC') if platform.system() == 'Windows' else '/bin/sh'}")
+        os_name = platform.system()
+        detected_shell = os.environ.get("COMSPEC", "cmd.exe") if os_name == "Windows" else "/bin/sh"
+        renderer.info(f"host: {os_name} ({sys.platform}), shell: {detected_shell}")
 
     agent = Agent(
         settings=settings,
