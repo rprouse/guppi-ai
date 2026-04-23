@@ -32,7 +32,7 @@ class Settings(BaseSettings):
 
     anthropic_api_key: str = Field(..., alias="ANTHROPIC_API_KEY")
 
-    model: str = Field("claude-sonnet-4-5", alias="GUPPI_MODEL")
+    model: str = Field("claude-sonnet-4-6", alias="GUPPI_MODEL")
     skills_dir: Path = Field(
         Path("~/.config/guppi/skills/").expanduser(),
         alias="GUPPI_SKILLS_DIR",

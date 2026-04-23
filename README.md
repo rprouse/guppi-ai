@@ -2,7 +2,7 @@
 
 <img align="right" width="200" height="200" src="img/guppi.png">
 
-GUPPI (or General Unit Primary Peripheral Interface) Is a semi-sentient software
+GUPPI (General Unit Primary Peripheral Interface) a semi-sentient software
 being that helps Replicants interact with the many systems they have at their
 disposal. This is an early implementation of the interface and as this is not
 the year 2133 in the fictional [Bobverse](https://bobiverse.fandom.com/wiki/We_Are_Legion_(We_Are_Bob)_Wiki),
@@ -94,7 +94,7 @@ src/guppi/
 
 ## Model
 
-Default is `claude-sonnet-4-5`. Override via `GUPPI_MODEL` env var or
+Default is `claude-sonnet-4-6`. Override via `GUPPI_MODEL` env var or
 `--model` flag.
 
 ## Status
